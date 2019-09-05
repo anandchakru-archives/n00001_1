@@ -1,0 +1,26 @@
+<nlib-nivite (invite)="loadInviteData($event)" (login)="loadUserData($event)" (guest)="loadGuestData($event)">
+</nlib-nivite>
+
+<div class="invitewrap" *ngIf="invite;else noinvite">
+  <div class="hostName">{{invite.hostName}}</div>
+  <div class="shortMsg">{{invite.shortMsg}}</div>
+  <div class="title">{{invite.title}}</div>
+  <hr>
+  <div class="details">
+    <div class="venue-wrap">
+      <div class="sub-heading">Venue</div>
+      <div class="venue">
+        {{invite.addrText}}
+      </div>
+    </div>
+    <div class="time-wrap">
+      <div class="sub-heading">Time</div>
+      <div class="time">
+        {{invite.timeFrom | date :'short'}}
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noinvite>
+  Loading Invite
+</ng-template>
